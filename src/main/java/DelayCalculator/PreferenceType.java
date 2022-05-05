@@ -1,7 +1,9 @@
 package DelayCalculator;
 
-//either milliseconds or frames-per-second (also Hertz)
+/**
+ * Enum for determining units of measurement.
+ */
 public enum PreferenceType {
-    DELAY_MS,
-    FPS
+    DELAY_MS,   // milliseconds
+    FPS         // frames-per-second (also Hertz)
 }
