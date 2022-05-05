@@ -1,9 +1,11 @@
 package DelayCalculator;
 
 import java.util.Objects;
-
 import com.google.inject.internal.Nullable;
 
+/**
+ * A class for storing and handling delay preferences.
+ */
 public class DelayOptions {
     private static final PreferenceType DEFAULT_PREFERENCE_TYPE = PreferenceType.DELAY_MS;
     private static final long DEFAULT_DELAY = 100L;
@@ -11,22 +13,46 @@ public class DelayOptions {
     private PreferenceType preferenceType;
     private long preferredValue;
 
+    /**
+     * Creates delay options with default value in milliseconds.
+     */
     public DelayOptions() {
         this(DEFAULT_DELAY);
     }
 
+    /**
+     * Creates delay options with specified value in milliseconds.
+     *
+     * @param delay Milliseconds.
+     */
     public DelayOptions(long delay) {
-        this(PreferenceType.DELAY_MS, delay);
+        this(DEFAULT_PREFERENCE_TYPE, delay);
     }
 
+    /**
+     * Creates delay options with specified value and specified type.
+     *
+     * @param preferenceType Type.
+     * @param preferredValue Value.
+     */
     public DelayOptions(PreferenceType preferenceType, long preferredValue) {
         setPreferences(preferenceType, preferredValue);
     }
 
+    /**
+     * Copies delay options (or creates new with default values, if null).
+     *
+     * @param delayOptions DelayOptions object.
+     */
     public DelayOptions(@Nullable DelayOptions delayOptions) {
         setPreferences(delayOptions);
     }
 
+    /**
+     * Manually set preferences from delay options.
+     *
+     * @param delayOptions DelayOptions object.
+     */
     public void setPreferences(@Nullable DelayOptions delayOptions) {
         DelayOptions nonNullDelayOptions = delayOptionNullCheck(delayOptions);
         setPreferences(nonNullDelayOptions.preferenceType, nonNullDelayOptions.preferredValue);
@@ -36,11 +62,22 @@ public class DelayOptions {
         return Objects.requireNonNullElse(delayOptions, new DelayOptions());
     }
 
+    /**
+     * Manually set preferences from preferred value and preferred type.
+     *
+     * @param preferenceType Type.
+     * @param preferredValue Value.
+     */
     public void setPreferences(PreferenceType preferenceType, long preferredValue) {
         this.preferenceType = preferenceType;
         this.preferredValue = preferredValue;
     }
 
+    /**
+     * Get preferred delay in milliseconds.
+     *
+     * @return Preferred delay in milliseconds.
+     */
     public long getPreferredMS() {
         switch (preferenceType) {
             case DELAY_MS -> {
@@ -56,6 +93,11 @@ public class DelayOptions {
         }
     }
 
+    /**
+     * Get preferred frames-per-second.
+     *
+     * @return Preferred frames-per-second.
+     */
     public long getPreferredFPS() {
         switch (preferenceType) {
             case DELAY_MS -> {

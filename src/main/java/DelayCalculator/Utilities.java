@@ -1,16 +1,32 @@
 package DelayCalculator;
 
-//TODO: add javadocs
+/**
+ * A helper class for utility methods.
+ */
 class Utilities {
+    private static final int MILLISECONDS_IN_SECOND = 1000;
+
+    /**
+     * Converts frames-per-second to milliseconds.
+     *
+     * @param fps   Frames-per-second.
+     * @return      Milliseconds.
+     */
     protected static long convertFPStoMS(long fps) {
-        //TODO: finish this
-        long ms = 0;
-        return ms;
+        return constantOverX(fps);
     }
 
+    /**
+     * Converts milliseconds to frames-per-second.
+     *
+     * @param ms    Milliseconds.
+     * @return      Frames-per-second.
+     */
     protected static long convertMStoFPS(long ms) {
-        //TODO: finish this
-        long fps = 0;
-        return fps;
+        return constantOverX(ms);
+    }
+
+    private static long constantOverX(long x) {
+        return MILLISECONDS_IN_SECOND / x;
     }
 }
