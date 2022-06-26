@@ -1,5 +1,7 @@
 # Delay calculator
 
+[![](https://jitpack.io/v/Krumuvecis/DelayCalculator.svg)](https://jitpack.io/#Krumuvecis/DelayCalculator)
+
 by [Krumuvecis](https://github.com/Krumuvecis)
 
 Free to use and modify for whatever purposes. No copyrights apply.
