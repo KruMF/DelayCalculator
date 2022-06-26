@@ -2,7 +2,7 @@ package DelayCalculator;
 
 import java.util.Date;
 
-import com.google.inject.internal.Nullable;
+import org.jetbrains.annotations.Nullable;
 
 //TODO: finish this and add javadoc
 public class DelayCalculator {
