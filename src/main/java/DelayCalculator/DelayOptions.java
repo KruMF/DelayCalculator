@@ -1,7 +1,8 @@
 package DelayCalculator;
 
 import java.util.Objects;
-import com.google.inject.internal.Nullable;
+
+import org.jetbrains.annotations.Nullable;
 
 /**
  * A class for storing and handling delay preferences.

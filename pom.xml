@@ -6,17 +6,33 @@
 
     <groupId>com.github.Krumuvecis</groupId>
     <artifactId>DelayCalculator</artifactId>
-    <version>0.3</version>
+    <version>0.4.1</version>
+    <packaging>jar</packaging>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
-        <junit.jupiter.version>5.8.2</junit.jupiter.version>
-        <maven.surefire.version>3.0.0-M5</maven.surefire.version>
+
+        <maven.compiler.source>18</maven.compiler.source>
+        <maven.compiler.target>18</maven.compiler.target>
+        <maven.surefire.version>3.0.0-M7</maven.surefire.version>
+        <jetbrains.annotations.version>23.0.0</jetbrains.annotations.version>
+        <junit.jupiter.version>5.9.0-M1</junit.jupiter.version>
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <version>${maven.surefire.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.jetbrains</groupId>
+            <artifactId>annotations</artifactId>
+            <version>${jetbrains.annotations.version}</version>
+            <scope>compile</scope>
+        </dependency>
+
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-engine</artifactId>
@@ -28,17 +44,6 @@
             <artifactId>junit-jupiter-api</artifactId>
             <version>${junit.jupiter.version}</version>
             <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-surefire-plugin</artifactId>
-            <version>${maven.surefire.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.jetbrains</groupId>
-            <artifactId>annotations</artifactId>
-            <version>22.0.0</version>
-            <scope>compile</scope>
         </dependency>
     </dependencies>
 
