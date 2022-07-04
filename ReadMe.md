@@ -1,6 +1,6 @@
 # Delay calculator
 
-[![](https://jitpack.io/v/Krumuvecis/DelayCalculator.svg)](https://jitpack.io/#Krumuvecis/DelayCalculator)
+[![](https://jitpack.io/v/KruMF/DelayCalculator.svg)](https://jitpack.io/#KruMF/DelayCalculator)
 
 by [Krumuvecis](https://github.com/Krumuvecis)
 
@@ -25,4 +25,4 @@ A calculator for calculating elapsed time and remaining delay for constant refre
 
 See a sample usage in `src\test\java\DelayCalculator\DelayTestThread`.
 
-Used in [krumuvecis/ThreadAbstraction](https://www.github.com/krumuvecis/ThreadAbstraction).
+Used in [KruMF/ThreadAbstraction](https://www.github.com/KruMF/ThreadAbstraction).
