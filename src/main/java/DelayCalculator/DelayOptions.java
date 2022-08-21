@@ -45,6 +45,7 @@ public class DelayOptions {
      *
      * @param delayOptions DelayOptions object.
      */
+    @SuppressWarnings("unused")
     public DelayOptions(@Nullable DelayOptions delayOptions) {
         setPreferences(delayOptions);
     }
