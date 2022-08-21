@@ -10,14 +10,14 @@ import static DelayCalculatorTest.Utilities.printLine;
 
 /**
  * A test class for testing the DelayCalculator
- * TODO: add javadocs where needed
  */
 public class DelayTestThread extends Thread implements Runnable {
-    private static final PreferenceType TESTING_TYPE = PreferenceType.DELAY_MS;
-    private static final long TESTING_VALUE = 500L;
+    private static final TestParameters TEST_PARAMETERS = new TestParameters(
+            PreferenceType.DELAY_MS, 500L,
+            5, 100000);
 
     /**
-     * The main method. Run this to start.
+     * The main method of the test. Run this to start.
      * Starts a new thread containing a DelayCalculator.
      *
      * @param args Command-line arguments.
@@ -28,8 +28,9 @@ public class DelayTestThread extends Thread implements Runnable {
 
     private final DelayCalculator delayCalculator;
 
-    DelayTestThread() {
-        delayCalculator = new DelayCalculator(new DelayOptions(TESTING_TYPE, TESTING_VALUE));
+    private DelayTestThread() {
+        delayCalculator = new DelayCalculator(new DelayOptions(
+                TEST_PARAMETERS.testingType(), TEST_PARAMETERS.testingValue()));
     }
 
     /**
@@ -42,7 +43,9 @@ public class DelayTestThread extends Thread implements Runnable {
     public void run() {
         while (true) {
             delayCalculator.start();
-            someCalculations();
+            printResults(someCalculations(
+                    TEST_PARAMETERS.displayableMemberCount(),
+                    TEST_PARAMETERS.innerMemberCount()));
             delayCalculator.end();
             try {
                 Thread.sleep(delayCalculator.getDelay());
@@ -53,19 +56,10 @@ public class DelayTestThread extends Thread implements Runnable {
         }
     }
 
-    private void printDelayInfo() {
-        printLine("Elapsed time (ms) : " + delayCalculator.getElapsedTime());
-        printLine("Delay (ms) : " + delayCalculator.getDelay());
-    }
-
-    private void someCalculations() {
-        printResults(getTestList());
-    }
-
-    private static ArrayList<TestCalculations> getTestList() {
+    private ArrayList<TestCalculations> someCalculations(int displayableMemberCount,
+                                                         int innerMemberCount) {
         ArrayList<TestCalculations> list = new ArrayList<>();
-        int memberCount = 5;
-        for (int i = 0; i < memberCount; i++) {
+        for (int i = 0; i < displayableMemberCount; i++) {
             list.add(new TestCalculations(i));
         }
         return list;
@@ -75,5 +69,10 @@ public class DelayTestThread extends Thread implements Runnable {
         for (TestCalculations member : list) {
             printLine(member.name + ", average: " + member.getAverage());
         }
+    }
+
+    private void printDelayInfo() {
+        printLine("Elapsed time (ms) : " + delayCalculator.getElapsedTime());
+        printLine("Delay (ms) : " + delayCalculator.getDelay());
     }
 }
