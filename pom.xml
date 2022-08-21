@@ -6,7 +6,7 @@
 
     <groupId>com.github.KruMF</groupId>
     <artifactId>DelayCalculator</artifactId>
-    <version>0.5.1</version>
+    <version>0.5.2</version>
     <packaging>jar</packaging>
 
     <properties>
@@ -16,7 +16,16 @@
         <maven.compiler.target>18</maven.compiler.target>
         <maven.surefire.version>3.0.0-M7</maven.surefire.version>
         <jetbrains.annotations.version>23.0.0</jetbrains.annotations.version>
+
+        <consoleUtils.version>0.1</consoleUtils.version>
     </properties>
+
+    <repositories>
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+        </repository>
+    </repositories>
 
     <dependencies>
         <dependency>
@@ -30,6 +39,12 @@
             <artifactId>annotations</artifactId>
             <version>${jetbrains.annotations.version}</version>
             <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.KruMF</groupId>
+            <artifactId>ConsoleUtils</artifactId>
+            <version>${consoleUtils.version}</version>
         </dependency>
     </dependencies>
 

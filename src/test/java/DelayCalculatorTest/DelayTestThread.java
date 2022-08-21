@@ -6,7 +6,7 @@ import DelayCalculator.PreferenceType;
 
 import java.util.ArrayList;
 
-import static DelayCalculatorTest.Utilities.printLine;
+import static consoleUtils.ConsoleUtils.printLine;
 
 /**
  * A test class for testing the DelayCalculator

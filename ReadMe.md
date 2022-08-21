@@ -18,6 +18,7 @@ A calculator for calculating elapsed time and remaining delay for constant refre
 * Maven compiler: 18
 * Maven Surefire: 3.0.0-M7
 * jetbrains annotations: 23.0.0
+* [ConsoleUtils](https://github.com/KruMF/ConsoleUtils) : 0.1
 
 
 ## Usage
