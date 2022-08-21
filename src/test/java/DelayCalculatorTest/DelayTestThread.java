@@ -6,8 +6,6 @@ import DelayCalculator.PreferenceType;
 
 import java.util.ArrayList;
 
-import static DelayCalculatorTest.Utilities.printLine;
-
 /**
  * A test class for testing the DelayCalculator
  */
@@ -27,10 +25,12 @@ public class DelayTestThread extends Thread implements Runnable {
     }
 
     private final DelayCalculator delayCalculator;
+    private final Output output;
 
     private DelayTestThread() {
         delayCalculator = new DelayCalculator(new DelayOptions(
                 TEST_PARAMETERS.testingType(), TEST_PARAMETERS.testingValue()));
+        output = new Output();
     }
 
     /**
@@ -43,7 +43,7 @@ public class DelayTestThread extends Thread implements Runnable {
     public void run() {
         while (true) {
             delayCalculator.start();
-            printResults(someCalculations(
+            output.addCalculationResults(someCalculations(
                     TEST_PARAMETERS.displayableMemberCount(),
                     TEST_PARAMETERS.innerMemberCount()));
             delayCalculator.end();
@@ -52,7 +52,8 @@ public class DelayTestThread extends Thread implements Runnable {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            printDelayInfo();
+            output.addDelayInfo(delayCalculator);
+            output.print();
         }
     }
 
@@ -63,16 +64,5 @@ public class DelayTestThread extends Thread implements Runnable {
             list.add(new TestCalculations(i, innerMemberCount));
         }
         return list;
-    }
-
-    private void printResults(ArrayList<TestCalculations> list) {
-        for (TestCalculations member : list) {
-            printLine(member.getName() + ", average: " + member.getAverage());
-        }
-    }
-
-    private void printDelayInfo() {
-        printLine("Elapsed time (ms) : " + delayCalculator.getElapsedTime());
-        printLine("Delay (ms) : " + delayCalculator.getDelay());
     }
 }
