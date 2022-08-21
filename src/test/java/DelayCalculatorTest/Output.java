@@ -2,22 +2,48 @@ package DelayCalculatorTest;
 
 import DelayCalculator.DelayCalculator;
 
+import java.util.List;
 import java.util.ArrayList;
 
-import static consoleUtils.ConsoleUtils.printLine;
-import static consoleUtils.ConsoleUtils.separator;
+import consoleUtils.ConsoleBuffer;
+import static consoleUtils.ConsoleUtils.separatorString;
 
+//for synchronizing output
 //TODO: add javadocs
 class Output {
-    protected static void printResults(ArrayList<TestCalculations> list) {
-        separator();
-        for (TestCalculations member : list) {
-            printLine(member.getName() + ", average: " + member.getAverage());
+    private final ConsoleBuffer consoleBuffer;
+
+    //TODO: add javadoc
+    protected Output() {
+        consoleBuffer = new ConsoleBuffer() {
+            @Override
+            public List<String> header() {
+                return new ArrayList<>() {{
+                    add(separatorString());
+                }};
+            }
+        };
+    }
+
+    //TODO: add javadoc
+    protected void addCalculationResults(ArrayList<TestCalculations> results) {
+        for (TestCalculations member : results) {
+            consoleBuffer.addLine(getLine(member));
         }
     }
 
-    protected static void printDelayInfo(DelayCalculator delayCalculator) {
-        printLine("Elapsed time (ms) : " + delayCalculator.getElapsedTime());
-        printLine("Delay (ms) : " + delayCalculator.getDelay());
+    private String getLine(TestCalculations member) {
+        return member.getName() + ", average: " + member.getAverage();
+    }
+
+    //TODO: add javadoc
+    protected void addDelayInfo(DelayCalculator delayCalculator) {
+        consoleBuffer.addLine("Elapsed time (ms) : " + delayCalculator.getElapsedTime());
+        consoleBuffer.addLine("Delay (ms) : " + delayCalculator.getDelay());
+    }
+
+    //TODO: add javadoc
+    protected void print() {
+        consoleBuffer.print();
     }
 }

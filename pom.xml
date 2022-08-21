@@ -17,7 +17,7 @@
         <maven.surefire.version>3.0.0-M7</maven.surefire.version>
         <jetbrains.annotations.version>23.0.0</jetbrains.annotations.version>
 
-        <consoleUtils.version>0.1</consoleUtils.version>
+        <consoleUtils.version>0.2</consoleUtils.version>
     </properties>
 
     <repositories>

@@ -25,10 +25,12 @@ public class DelayTestThread extends Thread implements Runnable {
     }
 
     private final DelayCalculator delayCalculator;
+    private final Output output;
 
     private DelayTestThread() {
         delayCalculator = new DelayCalculator(new DelayOptions(
                 TEST_PARAMETERS.testingType(), TEST_PARAMETERS.testingValue()));
+        output = new Output();
     }
 
     /**
@@ -41,7 +43,7 @@ public class DelayTestThread extends Thread implements Runnable {
     public void run() {
         while (true) {
             delayCalculator.start();
-            Output.printResults(someCalculations(
+            output.addCalculationResults(someCalculations(
                     TEST_PARAMETERS.displayableMemberCount(),
                     TEST_PARAMETERS.innerMemberCount()));
             delayCalculator.end();
@@ -50,7 +52,8 @@ public class DelayTestThread extends Thread implements Runnable {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            Output.printDelayInfo(delayCalculator);
+            output.addDelayInfo(delayCalculator);
+            output.print();
         }
     }
 
