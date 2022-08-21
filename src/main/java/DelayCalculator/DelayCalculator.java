@@ -2,6 +2,7 @@ package DelayCalculator;
 
 import java.util.Date;
 
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 /**
@@ -23,17 +24,7 @@ public class DelayCalculator {
      */
     @SuppressWarnings("unused")
     public DelayCalculator() {
-        options = new DelayOptions();
-    }
-
-    /**
-     * Creates a DelayCalculator with delay specified in milliseconds.
-     *
-     * @param delay Delay in milliseconds.
-     */
-    @SuppressWarnings("unused")
-    public DelayCalculator(long delay) {
-        options = new DelayOptions(delay);
+        this(null);
     }
 
     /**
@@ -42,9 +33,21 @@ public class DelayCalculator {
      *
      * @param delayOptions Delay options object.
      */
-    @SuppressWarnings("unused")
     public DelayCalculator(@Nullable DelayOptions delayOptions) {
-        options = new DelayOptions(delayOptions);
+        setOptions(delayOptions);
+    }
+
+    public void setOptions(@Nullable DelayOptions options) {
+        if (options == null) {
+            this.options = new DelayOptions();
+        } else {
+            this.options = options;
+        }
+    }
+
+    @SuppressWarnings("unused")
+    public @NotNull DelayOptions getOptions() {
+        return options;
     }
 
     /**
