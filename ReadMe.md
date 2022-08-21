@@ -17,12 +17,11 @@ A calculator for calculating elapsed time and remaining delay for constant refre
 * JDK: 18
 * Maven compiler: 18
 * Maven Surefire: 3.0.0-M7
-* junit jupiter: 5.9.0-M1
 * jetbrains annotations: 23.0.0
 
 
 ## Usage
 
-See a sample usage in `src\test\java\DelayCalculator\DelayTestThread`.
+See a sample usage in `src\test\java\DelayCalculatorTest\DelayTestThread`.
 
 Used in [KruMF/ThreadAbstraction](https://www.github.com/KruMF/ThreadAbstraction).
