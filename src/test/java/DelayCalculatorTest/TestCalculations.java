@@ -2,25 +2,34 @@ package DelayCalculatorTest;
 
 import java.util.Random;
 
-//TODO: add javadocs and check visibility
+//TODO: add javadoc
 class TestCalculations {
-    protected String name;
-    protected double[] randomArray;
-    private static final int MEMBER_COUNT = 100000;
+    private String name;
+    private double[] randomArray;
+    private final int memberCount;
 
-    protected TestCalculations(int i) {
-        name = "member number: " + i;
+    //TODO: add javadoc
+    protected TestCalculations(int index, int memberCount) {
+        name = "member number: " + index;
+        this.memberCount = memberCount;
         setRandomArray();
     }
 
+    //creates an array of random numbers
     private void setRandomArray() {
-        randomArray = new double[MEMBER_COUNT];
-        for (int i = 0; i < MEMBER_COUNT; i++) {
+        randomArray = new double[memberCount];
+        for (int i = 0; i < memberCount; i++) {
             Random r = new Random();
             randomArray[i] = r.nextDouble();
         }
     }
 
+    //TODO: add javadoc
+    protected String getName() {
+        return name;
+    }
+
+    //TODO: add javadoc
     protected double getAverage() {
         double sum = 0;
         for (double d : randomArray) {

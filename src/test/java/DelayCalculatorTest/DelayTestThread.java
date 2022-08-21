@@ -14,7 +14,7 @@ import static DelayCalculatorTest.Utilities.printLine;
 public class DelayTestThread extends Thread implements Runnable {
     private static final TestParameters TEST_PARAMETERS = new TestParameters(
             PreferenceType.DELAY_MS, 500L,
-            5, 100000);
+            3, 1000000);
 
     /**
      * The main method of the test. Run this to start.
@@ -60,14 +60,14 @@ public class DelayTestThread extends Thread implements Runnable {
                                                          int innerMemberCount) {
         ArrayList<TestCalculations> list = new ArrayList<>();
         for (int i = 0; i < displayableMemberCount; i++) {
-            list.add(new TestCalculations(i));
+            list.add(new TestCalculations(i, innerMemberCount));
         }
         return list;
     }
 
     private void printResults(ArrayList<TestCalculations> list) {
         for (TestCalculations member : list) {
-            printLine(member.name + ", average: " + member.getAverage());
+            printLine(member.getName() + ", average: " + member.getAverage());
         }
     }
 
