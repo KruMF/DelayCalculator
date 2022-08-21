@@ -23,6 +23,6 @@ A calculator for calculating elapsed time and remaining delay for constant refre
 
 ## Usage
 
-See a sample usage in `src\test\java\DelayCalculator\DelayTestThread`.
+See a sample usage in `src\test\java\DelayCalculatorTest\DelayTestThread`.
 
 Used in [KruMF/ThreadAbstraction](https://www.github.com/KruMF/ThreadAbstraction).
