@@ -2,13 +2,14 @@ package DelayCalculator;
 
 import java.util.Objects;
 
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 /**
  * A class for storing and handling delay preferences.
  */
 public class DelayOptions {
-    private static final PreferenceType DEFAULT_PREFERENCE_TYPE = PreferenceType.DELAY_MS;
+    private static final @NotNull PreferenceType DEFAULT_PREFERENCE_TYPE = PreferenceType.DELAY_MS;
     private static final long DEFAULT_DELAY = 100L;
 
     private PreferenceType preferenceType;

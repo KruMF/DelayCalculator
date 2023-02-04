@@ -1,16 +1,18 @@
 package DelayCalculatorTest;
 
-import DelayCalculator.DelayCalculator;
-import DelayCalculator.DelayOptions;
-import DelayCalculator.PreferenceType;
-
 import java.util.ArrayList;
+
+import org.jetbrains.annotations.NotNull;
+
+import DelayCalculator.PreferenceType;
+import DelayCalculator.DelayOptions;
+import DelayCalculator.DelayCalculator;
 
 /**
  * A test class for testing the DelayCalculator
  */
 public class DelayTestThread extends Thread implements Runnable {
-    private static final TestParameters TEST_PARAMETERS = new TestParameters(
+    private static final @NotNull TestParameters TEST_PARAMETERS = new TestParameters(
             PreferenceType.DELAY_MS, 500L,
             3, 1000000);
 
@@ -24,12 +26,13 @@ public class DelayTestThread extends Thread implements Runnable {
         (new DelayTestThread()).start();
     }
 
-    private final DelayCalculator delayCalculator;
-    private final Output output;
+    private final @NotNull DelayCalculator delayCalculator;
+    private final @NotNull Output output;
 
     private DelayTestThread() {
         delayCalculator = new DelayCalculator(new DelayOptions(
-                TEST_PARAMETERS.testingType(), TEST_PARAMETERS.testingValue()));
+                TEST_PARAMETERS.testingType(),
+                TEST_PARAMETERS.testingValue()));
         output = new Output();
     }
 
@@ -57,9 +60,9 @@ public class DelayTestThread extends Thread implements Runnable {
         }
     }
 
-    private ArrayList<TestCalculations> someCalculations(int displayableMemberCount,
-                                                         int innerMemberCount) {
-        ArrayList<TestCalculations> list = new ArrayList<>();
+    private @NotNull ArrayList<@NotNull TestCalculations> someCalculations(int displayableMemberCount,
+                                                                           int innerMemberCount) {
+        @NotNull ArrayList<@NotNull TestCalculations> list = new ArrayList<>();
         for (int i = 0; i < displayableMemberCount; i++) {
             list.add(new TestCalculations(i, innerMemberCount));
         }
