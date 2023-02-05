@@ -1,9 +1,8 @@
 package DelayCalculatorTest;
 
-import DelayCalculator.DelayCalculator;
-
-import java.util.List;
 import java.util.ArrayList;
+
+import delayCalculator.DelayCalculator;
 
 //for synchronizing output
 //TODO: add javadocs

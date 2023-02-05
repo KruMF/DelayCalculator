@@ -1,4 +1,4 @@
-package DelayCalculator;
+package delayCalculator;
 
 /**
  * A helper class for utility methods.

@@ -4,9 +4,9 @@ import java.util.ArrayList;
 
 import org.jetbrains.annotations.NotNull;
 
-import DelayCalculator.PreferenceType;
-import DelayCalculator.DelayOptions;
-import DelayCalculator.DelayCalculator;
+import delayCalculator.PreferenceType;
+import delayCalculator.DelayOptions;
+import delayCalculator.DelayCalculator;
 
 /**
  * A test class for testing the DelayCalculator

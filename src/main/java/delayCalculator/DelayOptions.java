@@ -1,4 +1,4 @@
-package DelayCalculator;
+package delayCalculator;
 
 import java.util.Objects;
 
