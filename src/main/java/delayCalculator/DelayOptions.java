@@ -87,7 +87,7 @@ public class DelayOptions {
                 return preferredValue;
             }
             case FPS -> {
-                return Utilities.convertFPStoMS(preferredValue);
+                return UnitConversion.convertFPStoMS(preferredValue);
             }
             //Add new types here.
             default -> {
@@ -104,7 +104,7 @@ public class DelayOptions {
     public long getPreferredFPS() {
         switch (preferenceType) {
             case DELAY_MS -> {
-                return Utilities.convertMStoFPS(preferredValue);
+                return UnitConversion.convertMStoFPS(preferredValue);
             }
             case FPS -> {
                 return preferredValue;
