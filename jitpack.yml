@@ -1,0 +1,9 @@
+jdk:
+  - openjdk18
+before_install:
+  - sdk install java 18.0.2.1-open
+  - sdk use java 18.0.2.1-open
+  - sdk install maven
+  - mvn -v
+install:
+  - mvn install -Dmaven.javadoc.skip=true -DskipTests
