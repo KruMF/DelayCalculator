@@ -1,7 +1,5 @@
 package delayCalculator;
 
-import java.util.Objects;
-
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -9,17 +7,13 @@ import org.jetbrains.annotations.Nullable;
  * A class for storing and handling delay preferences.
  */
 public class DelayOptions {
-    private static final @NotNull PreferenceType DEFAULT_PREFERENCE_TYPE = PreferenceType.DELAY_MS;
-    private static final long DEFAULT_DELAY = 100L;
-
-    private PreferenceType preferenceType;
-    private long preferredValue;
+    private @NotNull DelayPreference preferences;
 
     /**
      * Creates delay options with default value in milliseconds.
      */
     public DelayOptions() {
-        this(DEFAULT_DELAY);
+        preferences = new DelayPreference();
     }
 
     /**
@@ -28,52 +22,53 @@ public class DelayOptions {
      * @param delay Milliseconds.
      */
     public DelayOptions(long delay) {
-        this(DEFAULT_PREFERENCE_TYPE, delay);
+        this(null, delay);
     }
 
     /**
      * Creates delay options with specified value and specified type.
      *
-     * @param preferenceType Type.
+     * @param delayType Type.
      * @param preferredValue Value.
      */
-    public DelayOptions(PreferenceType preferenceType, long preferredValue) {
-        setPreferences(preferenceType, preferredValue);
+    public DelayOptions(@Nullable DelayType delayType, long preferredValue) {
+        preferences = new DelayPreference(delayType, preferredValue);
     }
 
     /**
-     * Copies delay options (or creates new with default values, if null).
+     * Copies delay options.
      *
-     * @param delayOptions DelayOptions object.
+     * @param delayOptions DelayOptions object. (Null - default options)
      */
-    @SuppressWarnings("unused")
     public DelayOptions(@Nullable DelayOptions delayOptions) {
-        setPreferences(delayOptions);
+        preferences = getPreferences(delayOptions);
+    }
+
+    private static @NotNull DelayPreference getPreferences(@Nullable DelayOptions delayOptions) {
+        if (delayOptions == null) {
+            return new DelayPreference();
+        } else {
+            return delayOptions.preferences;
+        }
     }
 
     /**
-     * Manually set preferences from delay options.
+     * Copy preferences from a DelayOptions object.
      *
      * @param delayOptions DelayOptions object.
      */
-    public void setPreferences(@Nullable DelayOptions delayOptions) {
-        DelayOptions nonNullDelayOptions = delayOptionNullCheck(delayOptions);
-        setPreferences(nonNullDelayOptions.preferenceType, nonNullDelayOptions.preferredValue);
-    }
-
-    private static DelayOptions delayOptionNullCheck(@Nullable DelayOptions delayOptions) {
-        return Objects.requireNonNullElse(delayOptions, new DelayOptions());
+    public final void setPreferences(@Nullable DelayOptions delayOptions) {
+        preferences = getPreferences(delayOptions);
     }
 
     /**
-     * Manually set preferences from preferred value and preferred type.
+     * Manually set preferences by type and value.
      *
-     * @param preferenceType Type.
+     * @param delayType      Type.
      * @param preferredValue Value.
      */
-    public void setPreferences(PreferenceType preferenceType, long preferredValue) {
-        this.preferenceType = preferenceType;
-        this.preferredValue = preferredValue;
+    public final void setPreferences(@Nullable DelayType delayType, long preferredValue) {
+        preferences = new DelayPreference(delayType, preferredValue);
     }
 
     /**
@@ -81,17 +76,17 @@ public class DelayOptions {
      *
      * @return Preferred delay in milliseconds.
      */
-    public long getPreferredMS() {
-        switch (preferenceType) {
+    public final long getPreferredMS() {
+        switch (preferences.getDelayType()) {
             case DELAY_MS -> {
-                return preferredValue;
+                return preferences.getValue();
             }
             case FPS -> {
-                return UnitConversion.convertFPStoMS(preferredValue);
+                return UnitConversion.convertFPStoMS(preferences.getValue());
             }
             //Add new types here.
             default -> {
-                return DEFAULT_DELAY;
+                return DelayPreference.DEFAULT_VALUE;
             }
         }
     }
@@ -101,17 +96,17 @@ public class DelayOptions {
      *
      * @return Preferred frames-per-second.
      */
-    public long getPreferredFPS() {
-        switch (preferenceType) {
+    public final long getPreferredFPS() {
+        switch (preferences.getDelayType()) {
             case DELAY_MS -> {
-                return UnitConversion.convertMStoFPS(preferredValue);
+                return UnitConversion.convertMStoFPS(preferences.getValue());
             }
             case FPS -> {
-                return preferredValue;
+                return preferences.getValue();
             }
             //Add new types here.
             default -> {
-                return DEFAULT_DELAY;
+                return DelayPreference.DEFAULT_VALUE;
             }
         }
     }

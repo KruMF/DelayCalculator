@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import org.jetbrains.annotations.NotNull;
 
-import delayCalculator.PreferenceType;
+import delayCalculator.DelayType;
 import delayCalculator.DelayOptions;
 import delayCalculator.DelayCalculator;
 
@@ -13,7 +13,7 @@ import delayCalculator.DelayCalculator;
  */
 public class DelayTestThread extends Thread implements Runnable {
     private static final @NotNull TestParameters TEST_PARAMETERS = new TestParameters(
-            PreferenceType.DELAY_MS, 500L,
+            DelayType.DELAY_MS, 500L,
             3, 1000000);
 
     /**

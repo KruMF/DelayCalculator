@@ -1,8 +1,8 @@
 package DelayCalculatorTest;
 
-import delayCalculator.PreferenceType;
+import delayCalculator.DelayType;
 
 //TODO: add javadoc
 record TestParameters(
-        PreferenceType testingType, long testingValue,
+        DelayType testingType, long testingValue,
         int displayableMemberCount, int innerMemberCount) {}

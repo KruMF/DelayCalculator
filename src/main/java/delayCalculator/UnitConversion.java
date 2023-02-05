@@ -1,7 +1,7 @@
 package delayCalculator;
 
 /**
- * A helper class for utility methods.
+ * A helper class for static unit-conversion methods.
  */
 class UnitConversion {
     private static final int MILLISECONDS_IN_SECOND = 1000;
