@@ -1,11 +1,7 @@
 package delayOptionsTest;
 
-import org.jetbrains.annotations.NotNull;
-
-import delayCalculator.DelayOptions;
-
 //TODO: finish this
-public class DelayOptionsTest extends AbstractDelayOptionsTest {
+public class DelayOptionsTest {
 
     //by constructor:
     //delayoptions() - default
@@ -21,8 +17,8 @@ public class DelayOptionsTest extends AbstractDelayOptionsTest {
     //methods:
     //setPreferences(delayoptions) - copy
     //setPreferences(type, value) - custom
-    //geyPreferredMS()
-    //geyPreferredFPS()
+    //getPreferredMS()
+    //getPreferredFPS()
 
     /**
      * Main method of this test.
@@ -31,35 +27,6 @@ public class DelayOptionsTest extends AbstractDelayOptionsTest {
      * @param args Command-line arguments.
      */
     public static void main(String[] args) {
-        new DelayOptionsTest();
-    }
-
-    //
-    DelayOptionsTest() {
-        super();
-    }
-
-    //
-    @Override
-    final @NotNull DelayOptions getInitialDelayOptions() {
-        return null;//
-    }
-}
-
-//
-abstract class AbstractDelayOptionsTest {
-    private final @NotNull DelayOptions delayOptions;
-
-    //
-    AbstractDelayOptionsTest() {
-        delayOptions = getInitialDelayOptions();
-    }
-
-    //
-    abstract @NotNull DelayOptions getInitialDelayOptions();
-
-    //
-    final @NotNull DelayOptions getDelayOptions() {
-        return delayOptions;
+        //
     }
 }
