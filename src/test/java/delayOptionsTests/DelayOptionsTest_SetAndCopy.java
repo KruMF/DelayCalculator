@@ -5,35 +5,10 @@ import org.jetbrains.annotations.NotNull;
 import delayCalculator.delayOptions.DelayOptions;
 
 //TODO: finish this and add javadocs
-public class DelayOptionsTest_SetAndCopy {
+public final class DelayOptionsTest_SetAndCopy extends AbstractDelayOptionsTest {
     private static final long
             TEST_VALUE_1 = 50,
             TEST_VALUE_2 = 200;
-    private static final @NotNull DelayOptionsContainer
-            CONTAINER_1,
-            CONTAINER_2;
-
-    static {
-        CONTAINER_1 = new DelayOptionsContainer("container 1") {
-            /**
-             * TODO: finish this javadoc
-             */
-            @Override
-            protected @NotNull DelayOptions getInitialDelayOptions() {
-                return new DelayOptions(TEST_VALUE_1);
-            }
-        };
-
-        CONTAINER_2 = new DelayOptionsContainer("container 2") {
-            /**
-             * TODO: finish this javadoc
-             */
-            @Override
-            protected @NotNull DelayOptions getInitialDelayOptions() {
-                return new DelayOptions(CONTAINER_1.getDelayOptions());
-            }
-        };
-    }
 
     /**
      * Main method of this test.
@@ -42,27 +17,41 @@ public class DelayOptionsTest_SetAndCopy {
      * @param args Command-line arguments.
      */
     public static void main(String[] args) {
-        printContainers();
+        new DelayOptionsTest_SetAndCopy();
+    }
+
+    private DelayOptionsTest_SetAndCopy() {
+        super();
+        addContainer("container 1", new DelayOptions(TEST_VALUE_1));
+        addContainer("container 2", new DelayOptions(getFirstContainer().getDelayOptions()));
+        print();
 
         //manually sets preferences
-        setPreferences_container1(TEST_VALUE_2);
-        printContainers();
+        setFirstContainerPreferences(TEST_VALUE_2);
+        print();
 
         //copies preferences
-        CONTAINER_2.getDelayOptions().setPreferences(CONTAINER_1.getDelayOptions());
-        printContainers();
+        copyPreferences();
+        print();
 
         //manually sets preferences again
-        setPreferences_container1(TEST_VALUE_1);
-        printContainers();
+        setFirstContainerPreferences(TEST_VALUE_1);
+        print();
     }
 
-    private static void printContainers() {
-        CONTAINER_1.print();
-        CONTAINER_2.print();
+    private @NotNull DelayOptionsContainer getFirstContainer() {
+        return getContainer(0);
     }
 
-    private static void setPreferences_container1(long value) {
-        CONTAINER_1.getDelayOptions().setPreferences(null, value);
+    private @NotNull DelayOptionsContainer getSecondContainer() {
+        return getContainer(1);
+    }
+
+    private void setFirstContainerPreferences(long value) {
+        getFirstContainer().getDelayOptions().setPreferences(null, value);
+    }
+
+    private void copyPreferences() {
+        getSecondContainer().getDelayOptions().setPreferences(getFirstContainer().getDelayOptions());
     }
 }
