@@ -1,24 +1,14 @@
 package delayOptionsTests;
 
 //TODO: finish this
-public class DelayOptionsTest {
+public class DelayOptionsTest_SetAndCopy {
 
-    //by constructor:
-    //delayoptions() - default
-    //delayoptions(delay) - default type, custom value
-    //delayoptions(type, value) - fully custom
+    //constructor:
     //delayoptions(delayoptions) - copied
-
-    //by type:
-    //delayoptions_ms
-    //delayoptions_fps
-    //delayoptions_undefined
 
     //methods:
     //setPreferences(delayoptions) - copy
     //setPreferences(type, value) - custom
-    //getPreferredMS()
-    //getPreferredFPS()
 
     /**
      * Main method of this test.
