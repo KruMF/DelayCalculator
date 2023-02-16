@@ -8,13 +8,17 @@ import consoleUtils.bufferedPrinting.SingleSectionConsoleBuffer;
 
 import delayCalculator.delayOptions.DelayOptions;
 
-//TODO: add javadocs
+/**
+ * A class for containing and handling a DelayOptions object and a console buffer.
+ */
 abstract class DelayOptionsContainer {
     private final @NotNull DelayOptions delayOptions;
     private final @NotNull AbstractConsoleBuffer consoleBuffer;
 
     /**
-     * TODO: finish this javadoc
+     * Creates a new DelayOptionsContainer.
+     *
+     * @param delayOptionsName Custom printable part of the console buffer.
      */
     protected DelayOptionsContainer(@NotNull String delayOptionsName) {
         delayOptions = getInitialDelayOptions();
@@ -24,33 +28,40 @@ abstract class DelayOptionsContainer {
     }
 
     /**
-     * TODO: finish this javadoc
+     * Prepares the initial DelayOptions object.
+     *
+     * @return The initial DelayOptions object.
      */
     protected abstract @NotNull DelayOptions getInitialDelayOptions();
 
     /**
-     * TODO: finish this javadoc
+     * Gets the contained DelayOptions object.
+     *
+     * @return The contained DelayOptions object.
      */
     protected final @NotNull DelayOptions getDelayOptions() {
         return delayOptions;
     }
 
     /**
-     * TODO: finish this javadoc
+     * Prints the information about the contained DelayOptions object.
      */
     protected final void print() {
         consoleBuffer.print();
     }
 
     /**
-     * TODO: finish this javadoc
+     * A test-specific section for console buffer.
      */
     private static final class DelayOptionsBufferSection extends BufferSection {
         private final @NotNull String delayOptionsName;
         private final @NotNull DelayOptionsContainer container;
 
         /**
-         * TODO: finish this javadoc
+         * Creates a new buffer section.
+         *
+         * @param delayOptionsName Custom printable part of this section.
+         * @param container        Reference container.
          */
         private DelayOptionsBufferSection(@NotNull String delayOptionsName,
                                           @NotNull DelayOptionsContainer container) {
