@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 import org.jetbrains.annotations.NotNull;
 
-import delayCalculator.DelayType;
-import delayCalculator.DelayOptions;
+import delayCalculator.delayOptions.DelayType;
+import delayCalculator.delayOptions.DelayOptions;
 import delayCalculator.DelayCalculator;
 
 /**

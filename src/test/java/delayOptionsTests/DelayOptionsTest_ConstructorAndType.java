@@ -2,8 +2,7 @@ package delayOptionsTests;
 
 import org.jetbrains.annotations.NotNull;
 
-import delayCalculator.DelayType;
-import delayCalculator.DelayOptions;
+import delayCalculator.delayOptions.*;
 
 //TODO: add javadocs
 public class DelayOptionsTest_ConstructorAndType {

@@ -1,4 +1,4 @@
-package delayCalculator;
+package delayCalculator.delayOptions;
 
 /**
  * A helper class for static unit-conversion methods.

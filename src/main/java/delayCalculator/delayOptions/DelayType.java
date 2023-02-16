@@ -1,4 +1,4 @@
-package delayCalculator;
+package delayCalculator.delayOptions;
 
 /**
  * Enum for determining units of measurement.

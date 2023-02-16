@@ -6,7 +6,7 @@ import consoleUtils.bufferedPrinting.BufferSection;
 import consoleUtils.bufferedPrinting.AbstractConsoleBuffer;
 import consoleUtils.bufferedPrinting.SingleSectionConsoleBuffer;
 
-import delayCalculator.DelayOptions;
+import delayCalculator.delayOptions.DelayOptions;
 
 //TODO: finish this and add javadocs
 abstract class DelayOptionsContainer {

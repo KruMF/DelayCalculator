@@ -1,6 +1,6 @@
 package DelayCalculatorTest;
 
-import delayCalculator.DelayType;
+import delayCalculator.delayOptions.DelayType;
 
 //TODO: add javadoc
 record TestParameters(
