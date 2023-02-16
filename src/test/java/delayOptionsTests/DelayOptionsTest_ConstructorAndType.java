@@ -2,7 +2,9 @@ package delayOptionsTests;
 
 import delayCalculator.delayOptions.*;
 
-//TODO: add javadocs
+/**
+ * TODO: finish this javadoc
+ */
 public final class DelayOptionsTest_ConstructorAndType extends AbstractDelayOptionsTest {
     private static final long TEST_VALUE = 50;
 

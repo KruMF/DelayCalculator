@@ -8,7 +8,7 @@ import consoleUtils.bufferedPrinting.SingleSectionConsoleBuffer;
 
 import delayCalculator.delayOptions.DelayOptions;
 
-//TODO: finish this and add javadocs
+//TODO: add javadocs
 abstract class DelayOptionsContainer {
     private final @NotNull DelayOptions delayOptions;
     private final @NotNull AbstractConsoleBuffer consoleBuffer;

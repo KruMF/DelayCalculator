@@ -4,7 +4,7 @@ import org.jetbrains.annotations.NotNull;
 
 import delayCalculator.delayOptions.DelayOptions;
 
-//TODO: finish this and add javadocs
+//TODO: add javadocs
 public final class DelayOptionsTest_SetAndCopy extends AbstractDelayOptionsTest {
     private static final long
             TEST_VALUE_1 = 50,
