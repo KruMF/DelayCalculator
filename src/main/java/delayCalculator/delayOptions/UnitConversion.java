@@ -3,7 +3,7 @@ package delayCalculator.delayOptions;
 /**
  * A helper class for static unit-conversion methods.
  */
-class UnitConversion {
+final class UnitConversion {
     private static final int MILLISECONDS_IN_SECOND = 1000;
 
     /**
@@ -13,7 +13,7 @@ class UnitConversion {
      *
      * @return    Milliseconds.
      */
-    protected static long convertFPStoMS(long fps) {
+    static long convertFPStoMS(long fps) {
         return constantOverX(fps);
     }
 
@@ -24,7 +24,7 @@ class UnitConversion {
      *
      * @return   Frames-per-second.
      */
-    protected static long convertMStoFPS(long ms) {
+    static long convertMStoFPS(long ms) {
         return constantOverX(ms);
     }
 

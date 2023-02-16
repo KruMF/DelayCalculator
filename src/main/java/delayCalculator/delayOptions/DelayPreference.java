@@ -5,31 +5,48 @@ import java.util.Objects;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-//TODO: add javadocs
-class DelayPreference {
+/**
+ * A class for handling delay type and reference value.
+ */
+final class DelayPreference {
     private static final @NotNull DelayType DEFAULT_TYPE = DelayType.DELAY_MS;
-    protected static final long DEFAULT_VALUE = 100L; //milliseconds
+    static final long DEFAULT_VALUE = 100L; //milliseconds
     private final @NotNull DelayType delayType;
     private final long value;
 
-    //TODO: add javadoc
-    protected DelayPreference() {
+    /**
+     * Creates DelayPreference object with default preferences.
+     */
+    DelayPreference() {
         this(null, DEFAULT_VALUE);
     }
 
-    //TODO: add javadoc
-    protected DelayPreference(@Nullable DelayType delayType, long value) {
+    /**
+     * Creates DelayPreference object with custom preferences.
+     *
+     * @param delayType Delay type.
+     * @param value     Reference value.
+     */
+    DelayPreference(@Nullable DelayType delayType, long value) {
         this.delayType = Objects.requireNonNullElse(delayType, DEFAULT_TYPE);
         this.value = Math.max(value, 0);
     }
 
-    //TODO: add javadoc
-    protected final @NotNull DelayType getDelayType() {
+    /**
+     * Gets the delay type.
+     *
+     * @return Delay type.
+     */
+    @NotNull DelayType getDelayType() {
         return delayType;
     }
 
-    //TODO: add javadoc
-    protected final long getValue() {
+    /**
+     * Gets the reference value.
+     *
+     * @return Reference value.
+     */
+    long getValue() {
         return value;
     }
 }

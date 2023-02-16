@@ -6,7 +6,7 @@ import org.jetbrains.annotations.Nullable;
 /**
  * A class for storing and handling delay preferences.
  */
-public class DelayOptions {
+public final class DelayOptions {
     private @NotNull DelayPreference preferences;
 
     /**
@@ -57,7 +57,7 @@ public class DelayOptions {
      *
      * @param delayOptions DelayOptions object.
      */
-    public final void setPreferences(@Nullable DelayOptions delayOptions) {
+    public void setPreferences(@Nullable DelayOptions delayOptions) {
         preferences = getPreferences(delayOptions);
     }
 
@@ -67,7 +67,7 @@ public class DelayOptions {
      * @param delayType      Type.
      * @param preferredValue Value.
      */
-    public final void setPreferences(@Nullable DelayType delayType, long preferredValue) {
+    public void setPreferences(@Nullable DelayType delayType, long preferredValue) {
         preferences = new DelayPreference(delayType, preferredValue);
     }
 
@@ -76,7 +76,7 @@ public class DelayOptions {
      *
      * @return Preferred delay in milliseconds.
      */
-    public final long getPreferredMS() {
+    public long getPreferredMS() {
         switch (preferences.getDelayType()) {
             case DELAY_MS -> {
                 return preferences.getValue();
@@ -96,7 +96,7 @@ public class DelayOptions {
      *
      * @return Preferred frames-per-second.
      */
-    public final long getPreferredFPS() {
+    public long getPreferredFPS() {
         switch (preferences.getDelayType()) {
             case DELAY_MS -> {
                 return UnitConversion.convertMStoFPS(preferences.getValue());
