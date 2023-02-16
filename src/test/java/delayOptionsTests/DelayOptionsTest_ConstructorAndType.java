@@ -3,7 +3,7 @@ package delayOptionsTests;
 import delayCalculator.delayOptions.*;
 
 /**
- * TODO: finish this javadoc
+ * A DelayOptions test for testing various constructors and DelayType types.
  */
 public final class DelayOptionsTest_ConstructorAndType extends AbstractDelayOptionsTest {
     private static final long TEST_VALUE = 50;

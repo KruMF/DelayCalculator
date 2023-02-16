@@ -7,19 +7,24 @@ import org.jetbrains.annotations.NotNull;
 
 import delayCalculator.delayOptions.DelayOptions;
 
-//TODO: add javadocs
+/**
+ * An abstract DelayOptions test.
+ */
 abstract class AbstractDelayOptionsTest {
     private final @NotNull List<@NotNull DelayOptionsContainer> containerList;
 
     /**
-     * TODO: finish this javadoc
+     * Creates a new AbstractDelayOptionsTest.
      */
     protected AbstractDelayOptionsTest() {
         containerList = new ArrayList<>();
     }
 
     /**
-     * TODO: finish this javadoc
+     * Adds a new container to this test.
+     *
+     * @param delayOptionsName Custom printable part of the console buffer.
+     * @param delayOptions     DelayOptions object to contain.
      */
     protected final void addContainer(@NotNull String delayOptionsName,
                                       @NotNull DelayOptions delayOptions) {
@@ -35,14 +40,16 @@ abstract class AbstractDelayOptionsTest {
     }
 
     /**
-     * TODO: finish this javadoc
+     * Gets a container by its index.
+     *
+     * @param index Index.
      */
     protected final @NotNull DelayOptionsContainer getContainer(int index) throws IndexOutOfBoundsException {
         return containerList.get(index);
     }
 
     /**
-     * TODO: finish this javadoc
+     * Prints all contained containers.
      */
     protected final void print() {
         for (@NotNull DelayOptionsContainer container : containerList) {
