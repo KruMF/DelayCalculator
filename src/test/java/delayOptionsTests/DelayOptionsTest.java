@@ -1,4 +1,4 @@
-package delayOptionsTest;
+package delayOptionsTests;
 
 //TODO: finish this
 public class DelayOptionsTest {

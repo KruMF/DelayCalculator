@@ -1,4 +1,4 @@
-package delayOptionsTest;
+package delayOptionsTests;
 
 import org.jetbrains.annotations.NotNull;
 

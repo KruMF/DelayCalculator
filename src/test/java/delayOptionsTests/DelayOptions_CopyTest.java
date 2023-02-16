@@ -1,7 +1,7 @@
-package delayOptionsTest;
+package delayOptionsTests;
 
 //TODO: finish this
-public class DelayOptions_TypeTest {
+public class DelayOptions_CopyTest {
     /**
      * Main method of this test.
      * Run this to start.
