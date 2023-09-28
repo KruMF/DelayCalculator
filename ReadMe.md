@@ -12,9 +12,9 @@ by [Krumuvecis](https://github.com/Krumuvecis)
 
 ## Requirements
 
-* JDK: 18
-* Maven compiler : 18
-* [ConsoleUtils](https://github.com/KruMF/ConsoleUtils) : 0.3
+* JDK: 21
+* Maven compiler : 21
+* [ConsoleUtils](https://github.com/KruMF/ConsoleUtils) : 0.3.2
 
 
 ## Usage
