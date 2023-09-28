@@ -1,7 +1,9 @@
-package DelayCalculator;
+package delayCalculator;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+
+import delayCalculator.delayOptions.DelayOptions;
 
 /**
  * TODO: finish javadocs

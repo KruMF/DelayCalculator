@@ -1,28 +1,30 @@
-package DelayCalculator;
+package delayCalculator.delayOptions;
 
 /**
- * A helper class for utility methods.
+ * A helper class for static unit-conversion methods.
  */
-class Utilities {
+final class UnitConversion {
     private static final int MILLISECONDS_IN_SECOND = 1000;
 
     /**
      * Converts frames-per-second to milliseconds.
      *
-     * @param fps   Frames-per-second.
-     * @return      Milliseconds.
+     * @param fps Frames-per-second.
+     *
+     * @return    Milliseconds.
      */
-    protected static long convertFPStoMS(long fps) {
+    static long convertFPStoMS(long fps) {
         return constantOverX(fps);
     }
 
     /**
      * Converts milliseconds to frames-per-second.
      *
-     * @param ms    Milliseconds.
-     * @return      Frames-per-second.
+     * @param ms Milliseconds.
+     *
+     * @return   Frames-per-second.
      */
-    protected static long convertMStoFPS(long ms) {
+    static long convertMStoFPS(long ms) {
         return constantOverX(ms);
     }
 
