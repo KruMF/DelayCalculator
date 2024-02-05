@@ -14,7 +14,7 @@ by [Krumuvecis](https://github.com/Krumuvecis)
 
 * JDK: 21
 * Maven compiler : 21
-* [ConsoleUtils](https://github.com/KruMF/ConsoleUtils) : 0.3.2
+* [ConsoleUtils](https://github.com/KruMF/ConsoleUtils) : 0.3.3
 
 
 ## Usage
